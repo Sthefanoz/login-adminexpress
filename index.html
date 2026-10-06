@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminExpress | Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="login">
+
+
+    <section class="login__brand" aria-label="Marca">
+      <h1 class="brand">AdminExpress</h1>
+    </section>
+
+
+    <section class="login__panel">
+      <div class="login__card">
+        <header class="login__header">
+          <h2 class="login__title">Let's <strong>Sign In</strong> <span aria-hidden="true">👇</span></h2>
+          <p class="login__subtitle">Hey, Enter your details to get sign in<br>to your account.</p>
+        </header>
+
+        <form class="form" action="#">
+          <div class="form__group">
+            <label class="form__label" for="email">Email</label>
+            <div class="form__field">
+
+              <svg class="form__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              </svg>
+              <input class="form__input" type="email" id="email" name="email" placeholder="Enter Email"
+                autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="password">Password</label>
+            <div class="form__field">
+
+              <svg class="form__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <input class="form__input" type="password" id="password" name="password" placeholder="Enter Password"
+                autocomplete="current-password" required>
+
+              <button class="form__toggle" type="button" aria-label="Mostrar contraseña">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" fill="none" stroke="currentColor"
+                    stroke-width="2" />
+                  <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path d="M4 4l16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <a class="form__forgot" href="#">Forgot password?</a>
+
+          <button class="form__submit" type="submit">Sign In</button>
+        </form>
+
+        <p class="login__signup">Don't have an account? <a href="#">Sign Up</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+
+    const toggle = document.querySelector('.form__toggle');
+    const password = document.getElementById('password');
+    toggle.addEventListener('click', () => {
+      const visible = password.type === 'text';
+      password.type = visible ? 'password' : 'text';
+      toggle.classList.toggle('is-visible', !visible);
+      toggle.setAttribute('aria-label', visible ? 'Mostrar contraseña' : 'Ocultar contraseña');
+    });
+
+
+    document.querySelector('.form').addEventListener('submit', (e) => {
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
